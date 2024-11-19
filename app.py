@@ -20,6 +20,7 @@ class App(QWidget):
         self.initUI()
 
     def initUI(self):
+        self.selected_directory = "."
         self.setWindowTitle("YouTube Link and Directory Selector")
         self.setGeometry(100, 100, 400, 180)
 
