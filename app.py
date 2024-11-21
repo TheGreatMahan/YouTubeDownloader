@@ -16,11 +16,10 @@ import yt_dlp
 class App(QWidget):
     def __init__(self):
         super().__init__()
-        self.selected_directory = None
+        self.selected_directory = "."
         self.initUI()
 
     def initUI(self):
-        self.selected_directory = "."
         self.setWindowTitle("YouTube Link and Directory Selector")
         self.setGeometry(100, 100, 400, 180)
 
@@ -69,9 +68,6 @@ class App(QWidget):
                 print(f"Error: {str(e)}")
         else:
             self.youtube_link_label.setText("Please select a directory first.")
-
-
-
 
     def showDirectoryDialog(self):
         directory = QFileDialog.getExistingDirectory(self, "Select Directory")
