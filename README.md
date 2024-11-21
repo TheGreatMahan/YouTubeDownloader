@@ -73,3 +73,5 @@ Ensure you are in the correct directory and have all dependencies installed as d
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+![image](https://github.com/user-attachments/assets/67360200-cd33-495b-b2ee-4bd48c51cf61)
