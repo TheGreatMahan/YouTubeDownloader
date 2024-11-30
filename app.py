@@ -42,21 +42,18 @@ class App(QWidget):
     def submitLink(self):
         link = self.youtube_link_input.text()
         # Handle download if directory is selected
-        if self.selected_directory:
-            try:
-                ydl_opts = {
-                    "format": "bestvideo+bestaudio/best",
-                    "outtmpl": f"{self.selected_directory}/%(title)s.%(ext)s",
-                    "noplaylist": True,
-                }
-                with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-                    ydl.download([link])
-                self.youtube_link_label.setText("Download Complete.")
-            except Exception as e:
-                self.youtube_link_label.setText(f"Failed to download: {str(e)}")
-                print(f"Error: {str(e)}")
-        else:
-            self.youtube_link_label.setText("Please select a directory first.")
+        try:
+            ydl_opts = {
+                "format": "bestvideo+bestaudio/best",
+                "outtmpl": f"{self.selected_directory}/%(title)s.%(ext)s",
+                "noplaylist": True,
+            }
+            with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+                ydl.download([link])
+            self.youtube_link_label.setText("Download Complete.")
+        except Exception as e:
+            self.youtube_link_label.setText(f"Failed to download: {str(e)}")
+            print(f"Error: {str(e)}")
 
     def showDirectoryDialog(self):
         directory = QFileDialog.getExistingDirectory(self, "Select Directory")
